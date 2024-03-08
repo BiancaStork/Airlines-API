@@ -34,8 +34,8 @@ public class FlightService {
     return null;
   }
 //borra un vuelo de la base de datos
-  public static Flight deleteFlight(){
-    return null;
+  public void deleteFlight(Long id){
+    flightRepository.deleteById(id);
   }
 
   
