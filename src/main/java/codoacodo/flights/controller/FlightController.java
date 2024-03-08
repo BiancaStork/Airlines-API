@@ -1,22 +1,28 @@
 package codoacodo.flights.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import codoacodo.flights.model.Flight;
+import codoacodo.flights.services.FlightService;
+
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/flights")
 
 public class FlightController {
 
-    Flight flight1 = new Flight();
+    @Autowired
+    private FlightService flightService;
 
-    @GetMapping
-    public Flight hello() {
-        return flight1;
-        //return ("Hi! I'm Bianca");
+    @GetMapping()
+    public List<Flight> getAll(){
+        return flightService.allFlights();
     }
+
 
 }
