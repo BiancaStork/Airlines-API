@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.PostMapping;
-
+import org.springframework.web.bind.annotation.RequestBody;
 
 import codoacodo.flights.model.Flight;
 import codoacodo.flights.services.FlightService;
@@ -37,9 +37,9 @@ public class FlightController {
         return flightService.flightById(id);
     }
     
-    @PostMapping("")
-    public Flight save() {       
-    return flightService.saveFlight();
+    @PostMapping("/new")
+    public void saveNew(@RequestBody Flight flight) {       
+        flightService.newFlight(flight);
     }
     
    // @PutMapping("flight/{id}")

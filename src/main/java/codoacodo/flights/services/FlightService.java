@@ -25,9 +25,9 @@ public class FlightService {
     
     
   }
-//guarda un vuelo en la BD
-  public Flight saveFlight(){
-    return null;
+//crea un nuevo vuelo en la BD
+  public void newFlight(Flight flight){
+    flightRepository.save(flight);
   }
 //actualiza un vuelo existente en la BD
   public Flight updateFlight(){
