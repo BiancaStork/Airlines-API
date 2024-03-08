@@ -7,18 +7,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import codoacodo.flights.model.Flight;
 import codoacodo.flights.services.FlightService;
 
-
 import java.util.List;
-
-
-
-
-
 
 @RestController
 @RequestMapping("/flights")
@@ -42,13 +37,14 @@ public class FlightController {
     public void saveNew(@RequestBody Flight flight) {       
         flightService.newFlight(flight);
     }
-    
+    @PutMapping("/update")
+    public Flight update(@RequestBody Flight flight) {
+        return flightService.updateFlight(flight);
+    }
+
    @DeleteMapping("delete/{id}")
     public void delete(@PathVariable Long id) {               
        flightService.deleteFlight(id);
     }
     
-    
-
-
 }
