@@ -18,6 +18,27 @@ public class FlightService {
   public List<Flight> allFlights(){
     return flightRepository.findAll() ;
   }
+// trae el vuelo que coincide con el id
+  public Flight flightById(Long id){
+    //mejorar buscando la manera de enviar al usuario un mensaje de error en lugar de null
+    return flightRepository.findById(id).orElse(null);
+    
+    
+  }
+//guarda un vuelo en la BD
+  public Flight saveFlight(){
+    return null;
+  }
+//actualiza un vuelo existente en la BD
+  public Flight updateFlight(){
+    return null;
+  }
+//borra un vuelo de la base de datos
+  public static Flight deleteFlight(){
+    return null;
+  }
+
+  
     
 
 
