@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 
 import codoacodo.flights.model.Flight;
 import codoacodo.flights.repository.FlightRepository;
-
+import codoacodo.flights.utils.FlightUtils;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -13,8 +13,14 @@ import java.util.stream.Collectors;
 @Service
 public class FlightService {
 
-  @Autowired
+  @Autowired /*esta anotacion, me permite llamar a los metodos del repositorio --- "inyectar" */
   FlightRepository flightRepository;
+
+  @Autowired
+  FlightUtils flightUtils;
+  
+
+
 //Trae todos los vuelos
   public List<Flight> allFlights(){
     return flightRepository.findAll() ;
@@ -26,27 +32,12 @@ public class FlightService {
     return flightRepository.findById(id).orElse(null);    
   }
 
-  // public List<Flight> flightByPrice(Integer price){
-  //   List<Flight> flight = flightRepository.findAll();
-  //   List<Flight> offersFlight = new ArrayList<>();
-  //   for (Flight f : flight){
-  //     if (f.getPrice() <= price){
-  //       offersFlight.add(f);
+  
 
-  //     }
-  //   }
-  //   return offersFlight;
-    
-  // }
-
-
-public List<Flight> flightByPrice(Integer price) {
+public List<Flight> getOffers(Integer offerPrice) {
     List<Flight> flights = flightRepository.findAll();
-//flights.stream() para crear un flujo de elementos a partir de la lista de vuelos.
-    return flights.stream()
-            .filter(f -> f.getPrice() <= price)  // aplicamos el filtro para mantener solo los vuelos cuyo precio es menor o igual
-            //recopilamos los resultados en una nueva lista con
-            .collect(Collectors.toList());
+    return flightUtils.detectedOffers(flights, offerPrice);
+    
 }
 
 //Crea un nuevo vuelo en la BD

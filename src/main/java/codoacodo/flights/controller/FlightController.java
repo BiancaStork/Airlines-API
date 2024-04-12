@@ -37,7 +37,7 @@ public class FlightController {
     
     @GetMapping("/offers")
     public List<Flight> getByPrice(@RequestParam Integer price)    {
-        return flightService.flightByPrice(price);
+        return flightService.getOffers(price);
     }
 
     @PostMapping("/new")
