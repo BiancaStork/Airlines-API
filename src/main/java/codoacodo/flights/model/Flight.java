@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Entity
+@Entity  //me dice que esto sera almacenado en una bd
 
 public class Flight {
     @Id
