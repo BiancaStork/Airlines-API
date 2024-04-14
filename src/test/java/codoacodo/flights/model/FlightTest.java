@@ -17,11 +17,11 @@ class FlightTest {
     }
 
     @Test
-    public void setAndGetDestinationTest(){
-        String testedDestination="COR";
-        flight.setDestination(testedDestination);
-        System.out.println("Se le asigna el Destino: "+ testedDestination);
-        Assertions.assertEquals(flight.getDestination(), testedDestination);
+    public void setAndGetDestinyTest(){
+        String testedDestiny="COR";
+        flight.setDestiny(testedDestiny);
+        System.out.println("Se le asigna el Destino: "+ testedDestiny);
+        Assertions.assertEquals(flight.getDestiny(), testedDestiny);
     }
 
     @BeforeAll

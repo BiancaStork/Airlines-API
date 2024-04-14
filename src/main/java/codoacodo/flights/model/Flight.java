@@ -21,17 +21,17 @@ public class Flight {
 
     private Long id;
     private String origin;
-    private String destination;
+    private String destiny;
     private String departureDateTime;
     private String arrivalDateTime;
     private double price; 
     private String frecuency;
     
     
-    public Flight(String origin, String destination, String departureDateTime, String arrivalDateTime, double price,
+    public Flight(String origin, String destiny, String departureDateTime, String arrivalDateTime, double price,
             String frecuency) {
         this.origin = origin;
-        this.destination = destination;
+        this.destiny = destiny;
         this.departureDateTime = departureDateTime;
         this.arrivalDateTime = arrivalDateTime;
         this.price = price;
