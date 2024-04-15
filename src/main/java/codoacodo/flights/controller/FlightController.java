@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import codoacodo.flights.models.Flight;
+import codoacodo.flights.models.FlightDto;
 import codoacodo.flights.services.FlightService;
 
 
@@ -26,7 +27,7 @@ public class FlightController {
     private FlightService flightService;
 
     @GetMapping()
-    public List<Flight> getAll(){
+    public List<FlightDto> getAll(){
         return flightService.allFlights();
     }
 

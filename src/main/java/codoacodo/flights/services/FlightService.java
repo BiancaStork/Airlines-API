@@ -4,11 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import codoacodo.flights.models.Flight;
+import codoacodo.flights.models.FlightDto;
 import codoacodo.flights.configuration.FlightConfiguration;
 import codoacodo.flights.repository.FlightRepository;
 import codoacodo.flights.utils.FlightUtils;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 @Service
@@ -25,9 +27,15 @@ public class FlightService {
   
 
 
-//Trae todos los vuelos
-  public List<Flight> allFlights(){
-    return flightRepository.findAll() ;
+//Trae todos los vuelos desde el DTO
+  public List<FlightDto> allFlights(){
+    
+    List<Flight> flightDto = flightRepository.findAll();
+    
+    //return flightRepository.findAll() ;
+    return flightDto.stream()
+                    .map(f-> flightUtils.flightMapper(f, getDolar()))
+                    .collect(Collectors.toList());
   }
 
 //Trae el vuelo que coincide con el id

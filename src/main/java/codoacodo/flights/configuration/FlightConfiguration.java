@@ -9,8 +9,8 @@ import org.springframework.web.client.RestTemplate;
 @Configuration
 
 public class FlightConfiguration {
-    @Bean
-    
+    @Bean  //componente dentro de un componente
+
     public RestTemplate restTemplate(){
         return new RestTemplate();
 

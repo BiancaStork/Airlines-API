@@ -3,6 +3,9 @@ package codoacodo.flights.utils;
 import org.springframework.stereotype.Component;
 
 import codoacodo.flights.models.Flight;
+import codoacodo.flights.models.FlightDto;
+import codoacodo.flights.models.Dolar;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +23,9 @@ public class FlightUtils {
             //recopilamos los resultados en una nueva lista con
             .collect(Collectors.toList());
        return offers;
+    }
 
-
+    public FlightDto flightMapper(Flight f, double price){
+       return new FlightDto(f.getId(), f.getOrigin(), f.getDestiny(), f.getDepartureDateTime(), f.getArrivalDateTime(), f.getPrice() * price, f.getFrecuency());
     }
 }

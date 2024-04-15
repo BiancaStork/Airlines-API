@@ -1,8 +1,11 @@
 package codoacodo.flights.models;
 
 import lombok.Data;
+import lombok.AllArgsConstructor;
 
 @Data
+@AllArgsConstructor
+
 
 public class FlightDto {
     private Long id;
@@ -11,5 +14,9 @@ public class FlightDto {
     private String departureDateTime;
     private String arrivalDateTime;
     private double convertedPrice; 
+    private String frecuency;
+
+
+    
 
 }
