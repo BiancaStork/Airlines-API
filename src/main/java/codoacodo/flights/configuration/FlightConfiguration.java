@@ -10,6 +10,7 @@ import org.springframework.web.client.RestTemplate;
 
 public class FlightConfiguration {
     @Bean
+    
     public RestTemplate restTemplate(){
         return new RestTemplate();
 
@@ -17,8 +18,8 @@ public class FlightConfiguration {
 
     public Dolar FetchDolar(){
         RestTemplate restTemplate = restTemplate();
-        String apiDolar = "https://dolarapi.com/v1/dolares/tarjeta";
-        return restTemplate.getForObject(apiDolar, Dolar.class);
+        String apiUrl = "https://dolarapi.com/v1/dolares/tarjeta";
+        return restTemplate.getForObject(apiUrl, Dolar.class);
     }
 
 }

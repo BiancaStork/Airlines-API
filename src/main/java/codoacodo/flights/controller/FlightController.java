@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import codoacodo.flights.models.Flight;
-import codoacodo.flights.models.Dolar;
 import codoacodo.flights.services.FlightService;
 
 
@@ -55,8 +54,8 @@ public class FlightController {
        flightService.deleteFlight(id);
     }
     
-    @GetMapping("/dolarPrice")
-    public Dolar getDolar() {
+    @GetMapping("/cotizacion-dolar")
+    public double getDolar() {
         return flightService.getDolar();
     }
     

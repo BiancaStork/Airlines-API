@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 
 import codoacodo.flights.models.Flight;
 import codoacodo.flights.configuration.FlightConfiguration;
-import codoacodo.flights.models.Dolar;
 import codoacodo.flights.repository.FlightRepository;
 import codoacodo.flights.utils.FlightUtils;
 
@@ -62,8 +61,8 @@ public List<Flight> getOffers(Integer offerPrice) {
     flightRepository.deleteById(id);
   }
 
-  public Dolar getDolar(){
-    return flightConfiguration.FetchDolar();
+  public double getDolar(){
+    return flightConfiguration.FetchDolar().getPromedio();
   }
 
 }
