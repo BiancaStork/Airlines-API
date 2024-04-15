@@ -2,7 +2,9 @@ package codoacodo.flights.repository;
 
  import org.springframework.data.jpa.repository.JpaRepository;
  import org.springframework.stereotype.Repository;
- import codoacodo.flights.model.Flight;
+
+import codoacodo.flights.models.Flight;
+
 import java.util.List;
 
 

@@ -3,12 +3,14 @@ package codoacodo.flights.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import codoacodo.flights.model.Flight;
+import codoacodo.flights.models.Flight;
+import codoacodo.flights.configuration.FlightConfiguration;
+import codoacodo.flights.models.Dolar;
 import codoacodo.flights.repository.FlightRepository;
 import codoacodo.flights.utils.FlightUtils;
 
 import java.util.List;
-import java.util.stream.Collectors;
+
 
 @Service
 public class FlightService {
@@ -18,6 +20,9 @@ public class FlightService {
 
   @Autowired
   FlightUtils flightUtils;
+  
+  @Autowired
+  FlightConfiguration flightConfiguration;
   
 
 
@@ -55,6 +60,10 @@ public List<Flight> getOffers(Integer offerPrice) {
 //Elimina un vuelo de la base de datos
   public void deleteFlight(Long id){
     flightRepository.deleteById(id);
+  }
+
+  public Dolar getDolar(){
+    return flightConfiguration.FetchDolar();
   }
 
 }

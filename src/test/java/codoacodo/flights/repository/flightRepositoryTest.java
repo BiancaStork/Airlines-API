@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
-import codoacodo.flights.model.Flight;
+import codoacodo.flights.models.Flight;
 
 @DataJpaTest /*con esta anotacion le decimos q esta clase es para testear */
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)

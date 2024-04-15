@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import codoacodo.flights.model.Flight;
+import codoacodo.flights.models.Flight;
+import codoacodo.flights.models.Dolar;
 import codoacodo.flights.services.FlightService;
 
 
@@ -52,6 +53,11 @@ public class FlightController {
    @DeleteMapping("delete/{id}")
     public void delete(@PathVariable Long id) {               
        flightService.deleteFlight(id);
+    }
+    
+    @GetMapping("/dolarPrice")
+    public Dolar getDolar() {
+        return flightService.getDolar();
     }
     
 }

@@ -1,7 +1,9 @@
 package codoacodo.flights.utils;
 
-import codoacodo.flights.model.Flight;
 import org.springframework.stereotype.Component;
+
+import codoacodo.flights.models.Flight;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;

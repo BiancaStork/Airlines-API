@@ -1,4 +1,4 @@
-package codoacodo.flights.model;
+package codoacodo.flights.models;
 
 
 import jakarta.persistence.Entity;
