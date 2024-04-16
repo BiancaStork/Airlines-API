@@ -55,9 +55,9 @@ public class FlightController {
        flightService.deleteFlight(id);
     }
     
-    @GetMapping("/cotizacion-dolar")
-    public double getDolar() {
-        return flightService.getDolar();
-    }
+    // @GetMapping("/cotizacion-dolar")
+    // public double getDolar() {
+    //     return flightService.getDolar();
+    // }
     
 }

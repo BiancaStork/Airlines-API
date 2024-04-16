@@ -28,16 +28,13 @@ public class FlightService {
 
 
 //Trae todos los vuelos desde el DTO
-  public List<FlightDto> allFlights(){
-    
-    List<Flight> flightDto = flightRepository.findAll();
-    
-    //return flightRepository.findAll() ;
-    return flightDto.stream()
-                    .map(f-> flightUtils.flightMapper(f, getDolar()))
-                    .collect(Collectors.toList());
+  public List<FlightDto> allFlights(){   
+    List<Flight> flights = flightRepository.findAll();
+    double dolarPrice = getDolar();
+    return flightUtils.flightMapperList(flights, dolarPrice);    
   }
 
+  
 //Trae el vuelo que coincide con el id
   public Flight flightById(Long id){
     //mejorar buscando la manera de enviar al usuario un mensaje de error en lugar de null
@@ -69,7 +66,7 @@ public List<Flight> getOffers(Integer offerPrice) {
     flightRepository.deleteById(id);
   }
 
-  public double getDolar(){
+  private double getDolar(){
     return flightConfiguration.FetchDolar().getPromedio();
   }
 
