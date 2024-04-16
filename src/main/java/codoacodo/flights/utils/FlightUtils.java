@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component;
 
 import codoacodo.flights.models.Flight;
 import codoacodo.flights.models.FlightDto;
-import codoacodo.flights.models.Dolar;
+//import codoacodo.flights.models.Dolar;
 
 
 import java.util.ArrayList;
