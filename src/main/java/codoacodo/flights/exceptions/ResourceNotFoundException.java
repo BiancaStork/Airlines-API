@@ -13,8 +13,7 @@ public class ResourceNotFoundException extends IllegalArgumentException{
     
     public ResourceNotFoundException(String message, String resourceName, String fieldName, Long value) {
        
-       // super(String.format("%s, not found with, %s, '%s"), resourceName, fieldName, value); //asi se hizo en clases ***a mi me da error!!
-       super(String.format("%s, not found with, %s, '%s"));
+        super(String.format("%s not found with: %s,'%s'",resourceName,fieldName, value));
         this.resourceName = resourceName;
         this.fieldName = fieldName;
         this.value = value;
