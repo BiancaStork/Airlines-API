@@ -20,5 +20,11 @@ public class Company {
     private Long id;
     private String name;
     private String banner;
+   
+    public Company(String name, String banner){
+      this.name=name;
+      this.banner=banner;
+   }
+
 
 }
