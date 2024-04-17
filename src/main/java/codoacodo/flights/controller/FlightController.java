@@ -42,8 +42,8 @@ public class FlightController {
     }
 
     @PostMapping("/new")
-    public void saveNew(@RequestBody Flight flight) {       
-        flightService.newFlight(flight);
+    public void saveNew(@RequestBody Flight flight, @RequestParam Long companyId) {       
+        flightService.newFlight(flight, companyId);
     }
     @PutMapping("/update")
     public Flight update(@RequestBody Flight flight) {
@@ -55,9 +55,5 @@ public class FlightController {
        flightService.deleteFlight(id);
     }
     
-    // @GetMapping("/cotizacion-dolar")
-    // public double getDolar() {
-    //     return flightService.getDolar();
-    // }
-    
+       
 }

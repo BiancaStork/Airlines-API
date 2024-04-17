@@ -3,14 +3,17 @@ package codoacodo.flights.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import codoacodo.flights.models.Company;
 import codoacodo.flights.models.Flight;
 import codoacodo.flights.models.FlightDto;
 import codoacodo.flights.configuration.FlightConfiguration;
+import codoacodo.flights.repository.CompanyRepository;
 import codoacodo.flights.repository.FlightRepository;
 import codoacodo.flights.utils.FlightUtils;
 
 import java.util.List;
-//import java.util.stream.Collectors;
+import java.util.Optional;
+
 
 
 @Service
@@ -24,6 +27,9 @@ public class FlightService {
   
   @Autowired
   FlightConfiguration flightConfiguration;
+
+  @Autowired
+  CompanyRepository companyRepository;
   
 
 
@@ -50,7 +56,12 @@ public List<Flight> getOffers(Integer offerPrice) {
 }
 
 //Crea un nuevo vuelo en la BD
-  public void newFlight(Flight flight){
+  public void newFlight(Flight flight, Long companyId){
+    Company company = companyRepository.findById(companyId).orElse(null);
+    //System.out.println("la compañia es: " + company);
+
+    flight.setCompany(company);
+    //System.out.println("El id asociado es: " + flight.getCompany());
     flightRepository.save(flight);
   }
 

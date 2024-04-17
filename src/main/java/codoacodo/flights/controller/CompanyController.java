@@ -24,8 +24,6 @@ public class CompanyController {
     @Autowired
     private CompanyService companyService;
 
-    @CrossOrigin
-
     @GetMapping("")
     public List<Company> getAll(){
         return companyService.allCompanies();
