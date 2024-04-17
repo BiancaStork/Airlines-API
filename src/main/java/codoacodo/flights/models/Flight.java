@@ -5,6 +5,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -27,9 +29,12 @@ public class Flight {
     private double price; 
     private String frecuency;
     
+    @ManyToOne
+    @JoinColumn(name="company_id")    
+    private Company company;
     
-    public Flight(String origin, String destiny, String departureDateTime, String arrivalDateTime, double price,
-            String frecuency) {
+    
+    public Flight(String origin, String destiny, String departureDateTime, String arrivalDateTime, double price, String frecuency) {
         this.origin = origin;
         this.destiny = destiny;
         this.departureDateTime = departureDateTime;
