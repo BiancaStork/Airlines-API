@@ -2,6 +2,7 @@ package codoacodo.flights.configuration;
 
 import codoacodo.flights.models.Dolar;
 
+//import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
@@ -9,17 +10,24 @@ import org.springframework.web.client.RestTemplate;
 @Configuration
 
 public class FlightConfiguration {
+
     @Bean  //componente dentro de un componente
 
+    // @Value("${dollarApi.dollar_url}")
+    // private String DOLLAR_API_URL;
+  
     public RestTemplate restTemplate(){
+        
+   
+
         return new RestTemplate();
 
     }
 
     public Dolar FetchDolar(){
         RestTemplate restTemplate = restTemplate();
-        String apiUrl = "https://dolarapi.com/v1/dolares/tarjeta";
-        return restTemplate.getForObject(apiUrl, Dolar.class);
+        String DOLLAR_API_URL = "https://dolarapi.com/v1/dolares/tarjeta";
+        return restTemplate.getForObject(DOLLAR_API_URL, Dolar.class);
     }
 
 }
